@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import giphy from 'giphy-api';
+
 import Gif from './gif';
 import GifList from './gif_list';
 import SearchBar from './search_bar';

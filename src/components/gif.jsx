@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Gif extends Component {
+
   handleClick = () => {
     if (this.props.selectGif) {
       this.props.selectGif(this.props.id);
@@ -8,14 +9,14 @@ class Gif extends Component {
   }
 
   render() {
-    const id = this.props.id;
+    const { id } = this.props;
 
     if (id === '') {
-      return (<div/>)
+      return (<div />);
     }
     const src = `https://media2.giphy.com/media/${id}/200.gif`;
     return (
-      <img src={src} className="gif" onClick={this.handleClick} />
+      <img src={src} className="gif" alt="" onClick={this.handleClick} />
     );
   }
 }
