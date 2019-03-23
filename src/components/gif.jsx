@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
 class Gif extends Component {
+  shouldComponentUpdate(nextProps) {
+    const { id } = this.props;
+
+    return nextProps.id !== id;
+  }
 
   handleClick = () => {
-    if (this.props.selectGif) {
-      this.props.selectGif(this.props.id);
+    const { selectGif, id } = this.props;
+    if (selectGif) {
+      selectGif(id);
     }
   }
 
@@ -14,6 +20,7 @@ class Gif extends Component {
     if (id === '') {
       return (<div />);
     }
+    console.log("rendering");
     const src = `https://media2.giphy.com/media/${id}/200.gif`;
     return (
       <img src={src} className="gif" alt="" onClick={this.handleClick} />
